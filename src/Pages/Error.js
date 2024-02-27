@@ -7,12 +7,15 @@ import { useNavigate } from "react-router-dom"
 export function Error(){
     const navigate=useNavigate();
 
-    // redirect to homepage after 3 second
-    useEffect(()=>{
-        setTimeout(()=>{
+    // Redirect to homepage after 3 seconds
+    useEffect(() => {
+        const timer = setTimeout(() => {
             navigate("/");
-        },3000);
-    },[])
+        }, 3000);
+
+        // Cleanup function to clear the timeout if the component unmounts before the timeout is completed
+        return () => clearTimeout(timer);
+    }, [navigate]); // Adding navigate to the dependency array
 
 
     return(

@@ -39,37 +39,44 @@ export function ProductContext({children}){
 
 
     // to check if the user is still logged in on page refresh
-    useEffect(()=>{
-        // getting user authentication token from local storage
-        const token=window.localStorage.getItem("token");
-        if(token){
-            // loggedIn user's data 
-            const index=window.localStorage.getItem("index");
-            const user=JSON.parse(index);
+    useEffect(() => {
+        // Getting user authentication token from local storage
+        const token = window.localStorage.getItem("token");
+        if (token) {
+            // LoggedIn user's data 
+            const index = window.localStorage.getItem("index");
+            const user = JSON.parse(index);
             setLoggedIn(token);
             setUserLoggedIn(user);
         }
-    },[]);
+    }, [setLoggedIn, setUserLoggedIn]); // Add setLoggedIn and setUserLoggedIn as dependencies
+    
 
 
 
     // getting real time update of user's cart
-    useEffect(()=>{
-        // check whether user is logged in or not
-        if(isLoggedIn){
-            // getting real-time update of data
-            const unsub = onSnapshot(doc(db, "BuyBusy",userLoggedIn.id), (doc) => {
-                // storing all the data in cart
-                setCart(doc.data().cart);
-                setMyOrders(doc.data().orders);
-            });
-            // total amount of products in cart
-            let sum=0;
-            cart.map((item) => Number(sum+=item.price));
-            setTotal(sum);
-            setItemInCart(cart.length);
-        }
-    },[userLoggedIn]);
+    // getting real time update of user's cart
+useEffect(() => {
+    // check whether user is logged in or not
+    if (isLoggedIn) {
+        // getting real-time update of data
+        const unsub = onSnapshot(doc(db, "BuyBusy", userLoggedIn.id), (doc) => {
+            // storing all the data in cart
+            setCart(doc.data().cart);
+            setMyOrders(doc.data().orders);
+        });
+
+        // total amount of products in cart
+        let sum = 0;
+        cart.map((item) => Number(sum += item.price));
+        setTotal(sum);
+        setItemInCart(cart.length);
+        
+        // Cleanup function
+        return () => unsub(); // Unsubscribe from snapshot listener
+    }
+}, [isLoggedIn, userLoggedIn, cart]); // Add cart as a dependency
+
     
 
     // To increase item's quantity
