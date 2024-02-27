@@ -1,0 +1,19 @@
+{
+  "files": {
+    "main.css": "/manojkumart06.github.io/E-Commerce-App-BuyBusy-/static/css/main.6c734ddb.css",
+    "main.js": "/manojkumart06.github.io/E-Commerce-App-BuyBusy-/static/js/main.2e14b406.js",
+    "static/media/house.png": "/manojkumart06.github.io/E-Commerce-App-BuyBusy-/static/media/house.758fe55f92d0d2277782.png",
+    "static/media/order.png": "/manojkumart06.github.io/E-Commerce-App-BuyBusy-/static/media/order.f157cb75ced84731ecb7.png",
+    "static/media/favicon.png": "/manojkumart06.github.io/E-Commerce-App-BuyBusy-/static/media/favicon.0feb97a34e43765929ec.png",
+    "static/media/log-in.png": "/manojkumart06.github.io/E-Commerce-App-BuyBusy-/static/media/log-in.875ff6714144369e3a3d.png",
+    "static/media/logout.png": "/manojkumart06.github.io/E-Commerce-App-BuyBusy-/static/media/logout.c11d9e6eef022beda581.png",
+    "static/media/cart.png": "/manojkumart06.github.io/E-Commerce-App-BuyBusy-/static/media/cart.427f0fe88453c51d151d.png",
+    "index.html": "/manojkumart06.github.io/E-Commerce-App-BuyBusy-/index.html",
+    "main.6c734ddb.css.map": "/manojkumart06.github.io/E-Commerce-App-BuyBusy-/static/css/main.6c734ddb.css.map",
+    "main.2e14b406.js.map": "/manojkumart06.github.io/E-Commerce-App-BuyBusy-/static/js/main.2e14b406.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.6c734ddb.css",
+    "static/js/main.2e14b406.js"
+  ]
+}
