@@ -28,7 +28,7 @@ export function SignIn(){
         // if user signed in redirect to corresponding page
         if (status) {
             console.log("Navigating to home page");
-            navigate("/home");
+            navigate("/");
         } else {
             console.log("Staying on sign-in page due to sign-in failure");
             navigate("/signin");

@@ -39,44 +39,37 @@ export function ProductContext({children}){
 
 
     // to check if the user is still logged in on page refresh
-    useEffect(() => {
-        // Getting user authentication token from local storage
-        const token = window.localStorage.getItem("token");
-        if (token) {
-            // LoggedIn user's data 
-            const index = window.localStorage.getItem("index");
-            const user = JSON.parse(index);
+    useEffect(()=>{
+        // getting user authentication token from local storage
+        const token=window.localStorage.getItem("token");
+        if(token){
+            // loggedIn user's data 
+            const index=window.localStorage.getItem("index");
+            const user=JSON.parse(index);
             setLoggedIn(token);
             setUserLoggedIn(user);
         }
-    }, [setLoggedIn, setUserLoggedIn]); // Add setLoggedIn and setUserLoggedIn as dependencies
-    
+    },[]);
 
 
 
     // getting real time update of user's cart
-    // getting real time update of user's cart
-useEffect(() => {
-    // check whether user is logged in or not
-    if (isLoggedIn) {
-        // getting real-time update of data
-        const unsub = onSnapshot(doc(db, "BuyBusy", userLoggedIn.id), (doc) => {
-            // storing all the data in cart
-            setCart(doc.data().cart);
-            setMyOrders(doc.data().orders);
-        });
-
-        // total amount of products in cart
-        let sum = 0;
-        cart.map((item) => Number(sum += item.price));
-        setTotal(sum);
-        setItemInCart(cart.length);
-        
-        // Cleanup function
-        return () => unsub(); // Unsubscribe from snapshot listener
-    }
-}, [isLoggedIn, userLoggedIn, cart]); // Add cart as a dependency
-
+    useEffect(()=>{
+        // check whether user is logged in or not
+        if(isLoggedIn){
+            // getting real-time update of data
+            const unsub = onSnapshot(doc(db, "BuyBusyy",userLoggedIn.id), (doc) => {
+                // storing all the data in cart
+                setCart(doc.data().cart);
+                setMyOrders(doc.data().orders);
+            });
+            // total amount of products in cart
+            let sum=0;
+            cart.map((item) => Number(sum+=item.price));
+            setTotal(sum);
+            setItemInCart(cart.length);
+        }
+    },[userLoggedIn]);
     
 
     // To increase item's quantity
@@ -87,7 +80,7 @@ useEffect(() => {
         setCart(cart);
 
         // update cart in firebase database
-        const userRef = doc(db, "BuyBusy", userLoggedIn.id);
+        const userRef = doc(db, "BuyBusyy", userLoggedIn.id);
         await updateDoc(userRef, {
             cart: cart
         });
@@ -115,7 +108,7 @@ useEffect(() => {
         setItemInCart(itemInCart -1 );
 
         // update cart in array
-        const userRef = doc(db, "BuyBusy", userLoggedIn.id);
+        const userRef = doc(db, "BuyBusyy", userLoggedIn.id);
         await updateDoc(userRef, {
             cart: cart
         });
@@ -139,7 +132,7 @@ useEffect(() => {
         }
 
         // add product to the cart of loggedIn user
-        const userRef = doc(db, "BuyBusy", userLoggedIn.id);
+        const userRef = doc(db, "BuyBusyy", userLoggedIn.id);
         await updateDoc(userRef, {
             cart: arrayUnion({quantity:1,...product})
         });
@@ -155,7 +148,7 @@ useEffect(() => {
     // remove a single product from cart
     async function removeFromCart(product){
         // update database 
-        const userRef = doc(db, "BuyBusy", userLoggedIn.id);
+        const userRef = doc(db, "BuyBusyy", userLoggedIn.id);
         await updateDoc(userRef, {
             cart: arrayRemove(product)
         });
@@ -174,7 +167,7 @@ useEffect(() => {
         }
 
         // empty cart array in database
-        const userRef = doc(db, "BuyBusy", userLoggedIn.id);
+        const userRef = doc(db, "BuyBusyy", userLoggedIn.id);
         await updateDoc(userRef, {
             cart: []
         });
@@ -191,7 +184,7 @@ useEffect(() => {
         const currentDate=getDate();
 
         // adding order to database
-        const userRef = doc(db, "BuyBusy", userLoggedIn.id);
+        const userRef = doc(db, "BuyBusyy", userLoggedIn.id);
         await updateDoc(userRef, {
             orders: arrayUnion({date:currentDate,list:cart,amount:total})
         });

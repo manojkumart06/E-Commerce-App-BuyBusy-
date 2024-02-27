@@ -28,20 +28,17 @@ export function AuthContext({children}){
     const [userLoggedIn,setUserLoggedIn]=useState(null);
 
     // getting all the users from data base on first render of page
-useEffect(() => {
-    const unsub = onSnapshot(collection(db, "BuyBusy"), (snapShot) => {
-        const users = snapShot.docs.map((doc) => {
-            return {
-                id: doc.id,
-                ...doc.data()
-            }
+    useEffect(()=>{
+        const unsub = onSnapshot(collection(db, "BuyBusyy"), (snapShot) => {
+            const users = snapShot.docs.map((doc) => {
+                return {
+                    id:doc.id,
+                    ...doc.data()
+                }
+            });
+            setUserList(users);
         });
-        setUserList(users);
-    });
-    // Cleanup function to unsubscribe from the snapshot listener
-    return () => unsub();
-}, [isLoggedIn, userList]); // Add userList as a dependency
-
+    },[isLoggedIn]);
     
 
     // creating new user
@@ -55,7 +52,7 @@ useEffect(() => {
         }
 
         // if email not found create new user 
-        await addDoc(collection(db, "BuyBusy"), {
+        const docRef =await addDoc(collection(db, "BuyBusyy"), {
             name:data.name,
             email:data.email,
             password:data.password,

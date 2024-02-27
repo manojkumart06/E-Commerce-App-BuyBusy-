@@ -7,12 +7,12 @@ import { getAuth } from "firebase/auth";
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
-  apiKey: "AIzaSyDN-GCzqSOLHm0c0uIHzv1wFlmLfE7CIBU",
-  authDomain: "busybuy-00.firebaseapp.com",
-  projectId: "busybuy-00",
-  storageBucket: "busybuy-00.appspot.com",
-  messagingSenderId: "1048248153515",
-  appId: "1:1048248153515:web:c4d688ef23e2d39e3d4eee"
+  apiKey: "AIzaSyAlCSIInupVBqTqLk78EkRJJErmLiRq4mM",
+  authDomain: "buybusy-20459.firebaseapp.com",
+  projectId: "buybusy-20459",
+  storageBucket: "buybusy-20459.appspot.com",
+  messagingSenderId: "655320117237",
+  appId: "1:655320117237:web:020b99800598308a08fabc"
 };
 
 // Initialize Firebase
