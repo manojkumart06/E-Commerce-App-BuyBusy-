@@ -1,38 +1,40 @@
-<h1>BuyBusy</h1>
-<p>This is an online shopping / eCommerce website made using Reactjs, firebase database for storing data on cloud and ContextAPI for store state and creating functions. On this site any user can signUp and signIn in his/her account. A user can add or remove product from cart , he can increase or decrease product quantity and can place order. User data will be saved in firebase database, So the user can view his purchase history anytime.</p>
+# BuyBusy
 
-<a href="">Go Live to Website</a>
+## Introduction
+BuyBusy is an online shopping / eCommerce website built using Reactjs, Firebase database for storing data on cloud, and ContextAPI for store state management and creating functions. It allows users to sign up and sign in to their accounts, add or remove products from the cart, adjust product quantities, and place orders. User data is stored in the Firebase database, enabling users to view their purchase history anytime.
 
+## Live Demo
+[Go Live to Website](#) 
 
-<h2>Installation and running code</h2>
-<ul>
-  <li>Get the code on your machine.</li>
-  <li>Navigate to the root directory of the code.</li>
-  <li>Open command terminal.</li>
-  <li>run command "npm install" to get all required dependencies.</li>
-  <li>to run the code run the command "npm start" in your terminal.</li>
-  <li>user can see the output by opening following link <a href="http://localhost:3000/">http://localhost:3000/</a> on there browser.</li>
-</ul>
+## Installation and Running the Code
+To get started with BuyBusy on your local machine, follow these steps:
 
-<h2>Features</h2>
-<ul>
-  <li>A user can create his account.</li>
-  <li>A user can signIn in his account.</li>
-  <li>User can add multiple products to his cart by click on "add to cart" button.</li>
-  <li>User can remove a specific product or all product at once from the cart.</li>
-  <li>User can increase or decrease the quantity of a product.</li>
-  <li>User can purchase all the product at once by clicking on purchase all.</li>
-  <li>User can see his placed order history with date and time of order and list of all the product purchased with total amount.</li></li>
-  <li>User data will be saved in database permanently so that he can see his order history any time.</li>
-</ul>
+1. Clone the repository to your machine.
+2. Navigate to the root directory of the code.
+3. Open your command terminal.
+4. Run the command `npm install` to install all required dependencies.
+5. To run the code, execute the command `npm start` in your terminal.
+6. You can view the output by opening [http://localhost:3000/](http://localhost:3000/) in your browser.
 
-<h2>Tools and libraries</h2>
-<ul>
-  <li>React js</li>
-  <li>Firebase Database</li>
-  <li>ContextAPI</li>
-  <li>react-router-dom</li>
-  <li>react-toastify</li>
-  <li>react-spinner</li>
-  <li>CSS</li>
-</ul>
+## Features
+- User authentication: Create an account or sign in.
+- Shopping cart functionality: Add, remove, and adjust product quantities in the cart.
+- Order placement: Purchase all products in the cart at once.
+- Purchase history: View past orders with date, time, and details of purchased products.
+- Persistent user data: User data is stored in the database for easy access to order history.
+
+## Tools and Libraries
+- React.js
+- Firebase Database
+- ContextAPI
+- react-router-dom
+- react-toastify
+- react-spinner
+- CSS
+
+## Contribution
+Contributions are welcome! If you have any suggestions or improvements, feel free to open an issue or submit a pull request.
+
+## License
+This project is licensed under the [MIT License](LICENSE).
+
