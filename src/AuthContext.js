@@ -29,7 +29,7 @@ export function AuthContext({children}){
 
     // getting all the users from data base on first render of page
     useEffect(()=>{
-        const unsub = onSnapshot(collection(db, "BuyBusyy"), (snapShot) => {
+        onSnapshot(collection(db, "BuyBusyy"), (snapShot) => {
             const users = snapShot.docs.map((doc) => {
                 return {
                     id:doc.id,
@@ -52,7 +52,7 @@ export function AuthContext({children}){
         }
 
         // if email not found create new user 
-        const docRef =await addDoc(collection(db, "BuyBusyy"), {
+        await addDoc(collection(db, "BuyBusyy"), {
             name:data.name,
             email:data.email,
             password:data.password,

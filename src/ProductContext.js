@@ -49,7 +49,7 @@ export function ProductContext({children}){
             setLoggedIn(token);
             setUserLoggedIn(user);
         }
-    },[]);
+    },[setLoggedIn, setUserLoggedIn]);
 
 
 
@@ -68,8 +68,10 @@ export function ProductContext({children}){
             cart.map((item) => Number(sum+=item.price));
             setTotal(sum);
             setItemInCart(cart.length);
+            // unsubscribe from the snapshot listener when component unmounts
+            return () => unsub();
         }
-    },[userLoggedIn]);
+    },[isLoggedIn,userLoggedIn]);
     
 
     // To increase item's quantity
@@ -173,7 +175,7 @@ export function ProductContext({children}){
         });
         setTotal(0);
         setItemInCart(0);
-        toast.success("Empty Cart!!");
+        toast.success("Cart is Empty Now!!");
     }
 
 
